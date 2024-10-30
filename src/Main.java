@@ -51,40 +51,47 @@ public class Main {
         var taskFive = ("Задача №5");
         System.out.println(taskFive);
         double deposit3 = 15000;
-        double proc3 = (deposit3 * 7) / 100;
+        double percent = 7;
+        int months = 6;
+        double proc3 = (deposit3 * percent) / 100;
         double deposit3WithProc = deposit3 + proc3;
         int mount3 = 0;
-        double total3 = 0;
-        while (total3 < 12_000_000) {
-            mount3 += 6;
-            total3 += deposit3WithProc * 6;
-            String total3Result = String.format("%.2f", total3);
-            System.out.println("Месяц " + mount3 + " сумма накоплений " + total3Result + " рублей");
+        double total3 = 12_000_000;
+        for (double sum = deposit3WithProc; sum <= total3; sum++) {
+            if (sum % (deposit3WithProc * months) == 0) {
+                mount3 += 6;
+                String sum1 = String.format("%.2f", sum);
+                System.out.println("Месяц " + mount3 + " сумма накоплений " + sum1 + " рублей");
+            }
         }
 
         var taskSix = ("Задача №6");
         System.out.println(taskSix);
         double deposit4 = 15000;
-        double proc4 = (deposit4 * 7) / 100;
+        double percent1 = 7;
+        int years = 9;
+        double proc4 = (deposit4 * percent1) / 100;
         double deposit4WithProc = deposit4 + proc4;
-        int mount4 = 0;
         double total4 = 0;
-        while (mount4 < 108) {
-            mount4 += 6;
-            total4 += deposit4WithProc * 6;
-            String total4Result = String.format("%.2f", total4);
-            System.out.println("Месяц " + mount4 + " сумма накоплений " + total4Result + " рублей");
+        int mountStart = 6;
+        int mountEnd = years * 12;
+        for (int mount4 = mountStart; mount4 <= mountEnd; mount4++) {
+            if (mount4 % 6 == 0) {
+                total4 += deposit4WithProc * 6;
+                String total4Result = String.format("%.2f", total4);
+                System.out.println("Месяц " + mount4 + " сумма накоплений " + total4Result + " рублей");
+            }
         }
 
         var taskSeven = ("Задача №7");
         System.out.println(taskSeven);
-        int d = 1;
-        while (d < 31) {
-            d++;
-            if (d % 7 == 0) {
-                System.out.println("Сегодня пятница, " + d + " -е число. Необходимо подготовить отчет");
-            }
-        }
+
+        int day = 7;
+        do {
+            System.out.println("Сегодня пятница, " + day + " -е число. Необходимо подготовить отчет");
+            day += 7;
+        } while (day <= 31);
+
         var taskEight = ("Задача №8");
         System.out.println(taskEight);
         int currentYear = 2024;
